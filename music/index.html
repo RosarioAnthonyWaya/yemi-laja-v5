@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music & Media — Yemi Laja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/yemi-laja-v5/style.css">
+<style>
+#music-grid { padding:7rem 6rem; background:var(--white); }
+.releases { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--sand); margin-top:3rem; }
+.release-card { background:var(--white); cursor:pointer; overflow:hidden; }
+.release-img { aspect-ratio:1; overflow:hidden; position:relative; }
+.release-img img { width:100%; height:100%; object-fit:cover; filter:sepia(10%); transition:transform 0.5s; }
+.release-card:hover .release-img img { transform:scale(1.05); }
+.release-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(30,26,22,0.4); opacity:0; transition:opacity 0.3s; }
+.release-card:hover .release-play { opacity:1; }
+.play-btn { width:52px; height:52px; border-radius:50%; border:1.5px solid rgba(201,168,76,0.7); display:flex; align-items:center; justify-content:center; color:var(--cream); font-size:0.9rem; padding-left:3px; }
+.release-info { padding:1.2rem 1.4rem 1.5rem; }
+.release-type { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem; }
+.release-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:400; color:var(--char); margin-bottom:0.2rem; }
+.release-year { font-size:0.78rem; color:var(--mist); }
+#videos-sec { padding:7rem 6rem; background:var(--parchment); }
+.featured-embed { width:100%; aspect-ratio:16/9; border:1px solid var(--border); margin-top:3rem; }
+.featured-embed iframe { width:100%; height:100%; border:none; }
+.video-thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--sand); margin-top:2px; }
+.vthumb { cursor:pointer; position:relative; overflow:hidden; aspect-ratio:16/9; background:var(--char); }
+.vthumb img { width:100%; height:100%; object-fit:cover; opacity:0.6; filter:sepia(10%); transition:opacity 0.3s; }
+.vthumb:hover img { opacity:0.85; }
+.vthumb-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.6rem; }
+.vthumb-play { width:44px; height:44px; border-radius:50%; border:1px solid rgba(201,168,76,0.6); display:flex; align-items:center; justify-content:center; }
+.vthumb-play::after { content:'▶'; font-size:0.75rem; color:var(--cream); margin-left:2px; }
+.vthumb-title { font-family:'Playfair Display',serif; font-size:0.95rem; color:var(--cream); text-align:center; padding:0 1rem; font-style:italic; }
+#spoken { padding:7rem 6rem; background:var(--white); display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+.spoken-img img { width:100%; filter:sepia(8%); }
+.spoken-quote { font-family:'DM Serif Display',serif; font-style:italic; font-size:1.5rem; line-height:1.6; color:var(--gold-dim); border-left:2px solid var(--gold); padding-left:1.5rem; margin:2rem 0; }
+.spoken-body { font-size:0.95rem; line-height:1.95; color:var(--mist); margin-bottom:2rem; }
+#gallery { padding:7rem 6rem; background:var(--parchment); }
+.masonry { columns:3; column-gap:6px; margin-top:3rem; }
+.masonry-item { break-inside:avoid; margin-bottom:6px; overflow:hidden; }
+.masonry-item img { width:100%; display:block; filter:sepia(8%) contrast(1.05); transition:filter 0.4s,transform 0.4s; }
+.masonry-item:hover img { filter:sepia(0%) contrast(1.1); transform:scale(1.02); }
+@media(max-width:1024px){
+  #music-grid,#videos-sec,#spoken,#gallery{padding:5rem 3rem;}
+  .releases{grid-template-columns:repeat(2,1fr);}
+  .video-thumbs{grid-template-columns:1fr 1fr;}
+  #spoken{grid-template-columns:1fr;gap:3rem;}
+  .masonry{columns:2;}
+}
+@media(max-width:767px){
+  #music-grid,#videos-sec,#spoken,#gallery{padding-left:1.5rem!important;padding-right:1.5rem!important;}
+  .releases{grid-template-columns:1fr 1fr;}
+  .video-thumbs{grid-template-columns:1fr;}
+  .masonry{columns:1;}
+}
+</style>
+</head>
+<body>
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMobNav()">✕</button>
+  <a href="/yemi-laja-v5/">Home</a><a href="/yemi-laja-v5/about/">About</a>
+  <a href="/yemi-laja-v5/music/">Music & Media</a><a href="/yemi-laja-v5/programs/">Programs</a>
+  <a href="/yemi-laja-v5/events/">Events</a><a href="/yemi-laja-v5/contact/">Contact</a>
+</div>
+<nav id="nav" class="scrolled">
+  <a href="/yemi-laja-v5/" class="nav-logo" style="color:var(--char)">Yemi <em>Laja</em></a>
+  <ul class="nav-links"><li><a href="/yemi-laja-v5/about/">About</a></li><li><a href="/yemi-laja-v5/music/" style="color:var(--gold)">Music & Media</a></li><li><a href="/yemi-laja-v5/programs/">Programs</a></li><li><a href="/yemi-laja-v5/events/">Events</a></li><li><a href="/yemi-laja-v5/contact/">Contact</a></li></ul>
+  <a href="/yemi-laja-v5/contact/#booking" class="nav-book">Book Yemi</a>
+  <div class="nav-ham" onclick="openMobNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="https://i.ibb.co/1fWbtmcc/Everything-I-ve-Needed-Youtube-2.jpg" alt="Music" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1600&q=80'"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Her Craft</p>
+    <h1 class="page-title">Music & <em>Media</em></h1>
+    <p class="page-subtitle">Songs, spoken word, and film — each one an act of faith expressed through excellence.</p>
+  </div>
+</section>
+
+<section id="music-grid">
+  <div class="reveal"><p class="section-label">Discography</p><h2 class="section-heading" style="color:var(--char)">The <em>Releases</em></h2></div>
+  <div class="releases">
+    <div class="release-card reveal reveal-delay-1" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')">
+      <div class="release-img"><img src="https://i.ibb.co/1fWbtmcc/Everything-I-ve-Needed-Youtube-2.jpg" alt="Everything I've Needed" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80'"><div class="release-play"><div class="play-btn">▶</div></div></div>
+      <div class="release-info"><div class="release-type">Single</div><div class="release-title">Everything I've Needed</div><div class="release-year">2025</div></div>
+    </div>
+    <div class="release-card reveal reveal-delay-2" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')">
+      <div class="release-img"><img src="https://i.ibb.co/5WvttNHb/King-In-You-Youtube-1.jpg" alt="The King In You" onerror="this.src='https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&q=80'"><div class="release-play"><div class="play-btn">▶</div></div></div>
+      <div class="release-info"><div class="release-type">Single</div><div class="release-title">The King In You</div><div class="release-year">2025</div></div>
+    </div>
+    <div class="release-card reveal reveal-delay-3" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')">
+      <div class="release-img"><img src="https://i.ibb.co/GQ2xB1pS/Mastercraft-the-Ep-1.jpg" alt="Mastercraft EP" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80'"><div class="release-play"><div class="play-btn">▶</div></div></div>
+      <div class="release-info"><div class="release-type">EP</div><div class="release-title">Mastercraft: The EP</div><div class="release-year">2025</div></div>
+    </div>
+    <div class="release-card reveal reveal-delay-4" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')">
+      <div class="release-img"><img src="https://i.ibb.co/C3rM8WM5/yemi-02.png" alt="Ireti Nbe" onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80'"><div class="release-play"><div class="play-btn">▶</div></div></div>
+      <div class="release-info"><div class="release-type">Single</div><div class="release-title">Ireti Nbe</div><div class="release-year">2025</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos-sec">
+  <div class="reveal"><p class="section-label">Videos</p><h2 class="section-heading" style="color:var(--char)">Watch & <em>Experience</em></h2></div>
+  <div class="featured-embed reveal reveal-delay-1"><iframe src="https://www.youtube.com/embed/Fa4kD-FzWSU" allowfullscreen></iframe></div>
+  <div class="video-thumbs">
+    <div class="vthumb reveal reveal-delay-1" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')"><img src="https://i.ibb.co/1fWbtmcc/Everything-I-ve-Needed-Youtube-2.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80'"><div class="vthumb-overlay"><div class="vthumb-play"></div><div class="vthumb-title">Everything I've Needed</div></div></div>
+    <div class="vthumb reveal reveal-delay-2" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')"><img src="https://i.ibb.co/5WvttNHb/King-In-You-Youtube-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&q=80'"><div class="vthumb-overlay"><div class="vthumb-play"></div><div class="vthumb-title">The King In You</div></div></div>
+    <div class="vthumb reveal reveal-delay-3" onclick="openVideo('https://www.youtube.com/embed/Fa4kD-FzWSU')"><img src="https://i.ibb.co/GQ2xB1pS/Mastercraft-the-Ep-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80'"><div class="vthumb-overlay"><div class="vthumb-play"></div><div class="vthumb-title">Mastercraft: The EP</div></div></div>
+  </div>
+</section>
+
+<section id="spoken">
+  <div class="reveal"><img src="https://i.ibb.co/nqNg213t/yemi-laja-1767088399-3798935294494434272-6006495913.jpg" alt="Spoken Word" class="spoken-img" style="width:100%;filter:sepia(8%);" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80'"></div>
+  <div class="reveal reveal-delay-1">
+    <p class="section-label">Spoken Word</p>
+    <h2 class="section-heading" style="color:var(--char);margin-bottom:1.5rem;">Words That <em>Move</em></h2>
+    <blockquote class="spoken-quote">"Every word I speak is a declaration — not just poetry, but prophecy."</blockquote>
+    <p class="spoken-body">Before the songs, there were words. Spoken word has always been a core part of Yemi's creative expression — weaving together scripture, culture, and personal narrative into pieces that cut to the heart.</p>
+    <p class="spoken-body">From national conferences to intimate gatherings, her spoken word performances have moved audiences across the UK, Europe, and beyond.</p>
+    <a href="/yemi-laja-v5/contact/#booking" class="cta-primary">Book for Spoken Word</a>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="reveal"><p class="section-label">Gallery</p><h2 class="section-heading" style="color:var(--char);">Stage & <em>Studio</em></h2></div>
+  <div class="masonry">
+    <div class="masonry-item reveal"><img src="https://i.ibb.co/nqNg213t/yemi-laja-1767088399-3798935294494434272-6006495913.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80'"></div>
+    <div class="masonry-item reveal reveal-delay-1"><img src="https://i.ibb.co/1fWbtmcc/Everything-I-ve-Needed-Youtube-2.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80'"></div>
+    <div class="masonry-item reveal reveal-delay-2"><img src="https://i.ibb.co/GQ2xB1pS/Mastercraft-the-Ep-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&q=80'"></div>
+    <div class="masonry-item reveal"><img src="https://i.ibb.co/5WvttNHb/King-In-You-Youtube-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80'"></div>
+    <div class="masonry-item reveal reveal-delay-1"><img src="https://i.ibb.co/C3rM8WM5/yemi-02.png" alt="" onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80'"></div>
+    <div class="masonry-item reveal reveal-delay-2"><img src="https://i.ibb.co/nqNg213t/yemi-laja-1767088399-3798935294494434272-6006495913.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80'"></div>
+  </div>
+</section>
+
+<div id="cta-band" class="reveal"><div class="cta-band-text"><p class="cta-band-eyebrow">Book a performance</p><h2 class="cta-band-heading">Bring Yemi's music to your <em>audience.</em></h2></div><a href="/yemi-laja-v5/contact/#booking" class="cta-dark">Book a Performance</a></div>
+
+<footer><div class="footer-top"><div><div class="footer-brand-name">Yemi <em>Laja</em></div><p class="footer-tagline">Worship Artist · Creative Director<br>Founder of Mastercraft Global Limited</p><div class="footer-socials"><a href="#" class="footer-social">IG</a><a href="#" class="footer-social">TK</a><a href="#" class="footer-social">FB</a><a href="https://youtu.be/Fa4kD-FzWSU" class="footer-social">YT</a></div></div><div><p class="footer-col-title">Navigate</p><ul class="footer-links"><li><a href="/yemi-laja-v5/about/">About</a></li><li><a href="/yemi-laja-v5/music/">Music & Media</a></li><li><a href="/yemi-laja-v5/programs/">Programs</a></li><li><a href="/yemi-laja-v5/events/">Events</a></li><li><a href="/yemi-laja-v5/contact/">Contact</a></li></ul></div><div><p class="footer-col-title">Programs</p><ul class="footer-links"><li><a href="/yemi-laja-v5/programs/#coaching">Coaching</a></li><li><a href="/yemi-laja-v5/programs/#endorsement">Talent Endorsement</a></li><li><a href="/yemi-laja-v5/programs/#design">Mastercraft Designs</a></li></ul></div><div><p class="footer-col-title">Connect</p><ul class="footer-links"><li><a href="/yemi-laja-v5/contact/#booking">Book a Performance</a></li><li><a href="/yemi-laja-v5/contact/#inquiry">General Inquiry</a></li></ul></div></div><div class="footer-bottom"><p class="footer-legal">© 2025 Yemi Laja. All rights reserved. <strong>Powered by Mastercraft Global Limited.</strong></p><p class="footer-mc">Mastercraft Global Limited · Registered in the UK</p></div></footer>
+
+<div class="modal" id="videoModal"><div class="modal-inner"><button class="modal-close" onclick="closeVideo()">✕ Close</button><iframe class="modal-video" id="videoFrame" src="" allowfullscreen allow="autoplay"></iframe></div></div>
+
+<script>
+function openMobNav(){document.getElementById("mobNav").classList.add("open");}
+function closeMobNav(){document.getElementById("mobNav").classList.remove("open");}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible");}),{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+function openVideo(src){document.getElementById("videoFrame").src=src;document.getElementById("videoModal").classList.add("open");}
+function closeVideo(){document.getElementById("videoFrame").src="";document.getElementById("videoModal").classList.remove("open");}
+document.getElementById("videoModal").addEventListener("click",e=>{if(e.target===e.currentTarget)closeVideo();});
+</script>
+</body></html>
