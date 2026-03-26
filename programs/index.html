@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs — Yemi Laja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/yemi-laja-v5/style.css">
+<style>
+.prog-section { padding:7rem 6rem; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+.prog-section.alt { background:var(--parchment); direction:rtl; }
+.prog-section.alt > * { direction:ltr; }
+.prog-section.plain { background:var(--white); }
+.prog-num { font-family:'Playfair Display',serif; font-size:7rem; font-weight:300; color:rgba(201,168,76,0.1); line-height:1; margin-bottom:0.5rem; }
+.prog-label { font-size:0.62rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+.prog-heading { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,3rem); font-weight:300; line-height:1.1; color:var(--char); margin-bottom:1rem; }
+.prog-heading em { font-style:italic; color:var(--gold); }
+.prog-for { font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--mist); margin-bottom:1.5rem; }
+.prog-for strong { color:var(--char); }
+.prog-body { font-size:0.95rem; line-height:1.95; color:var(--mist); margin-bottom:1.5rem; }
+.outcomes { list-style:none; margin-bottom:2.5rem; }
+.outcomes li { font-size:0.9rem; line-height:1.7; color:var(--mist); padding:0.6rem 0; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:0.8rem; }
+.outcomes li::before { content:'✦'; color:var(--gold); font-size:0.5rem; margin-top:0.45rem; flex-shrink:0; }
+.prog-img { position:relative; }
+.prog-img img { width:100%; display:block; filter:sepia(8%) contrast(1.05); }
+.prog-img-tag { position:absolute; bottom:1.5rem; left:1.5rem; background:var(--gold); color:var(--char); font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; padding:0.4rem 1rem; font-weight:500; }
+.cta-row { display:flex; gap:1rem; flex-wrap:wrap; }
+#form-section { background:var(--char); padding:7rem 6rem; }
+.form-wrap { display:grid; grid-template-columns:1.1fr 0.9fr; gap:2px; background:rgba(201,168,76,0.1); margin-top:3rem; }
+.form-panel { background:var(--char-soft); padding:3.5rem; }
+.form-info { background:rgba(201,168,76,0.05); padding:3.5rem; }
+.form-group { margin-bottom:1.4rem; }
+.form-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(237,229,216,0.5); display:block; margin-bottom:0.5rem; }
+.form-input, .form-select, .form-textarea { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.15); color:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:300; padding:0.9rem 1rem; outline:none; transition:border-color 0.3s; }
+.form-input:focus,.form-select:focus,.form-textarea:focus { border-color:var(--gold); }
+.form-textarea { min-height:130px; resize:vertical; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; appearance:none; }
+.info-item { margin-bottom:2.5rem; }
+.info-lbl { font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+.info-val { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--cream); line-height:1.5; font-style:italic; }
+#process { padding:6rem 6rem; background:var(--parchment); text-align:center; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); margin-top:3rem; }
+.step { padding:2.5rem 2rem; border-right:1px solid var(--border); }
+.step:last-child { border-right:none; }
+.step-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:300; color:rgba(201,168,76,0.2); line-height:1; margin-bottom:1rem; }
+.step-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:400; color:var(--char); margin-bottom:0.5rem; }
+.step-desc { font-size:0.83rem; line-height:1.75; color:var(--mist); }
+@media(max-width:1024px){
+  #endorsement-packages { padding:5rem 3rem; }
+  #endorsement-packages > div[style*="grid-template-columns:repeat(2"] { grid-template-columns:1fr!important; }
+  #endorsement-packages > div[style*="grid-template-columns:repeat(2"] > div[style*="grid-column:span 2"] { grid-column:span 1!important; }
+
+  .prog-section{grid-template-columns:1fr;padding:5rem 3rem;gap:3rem;}
+  .prog-section.alt{direction:ltr;}
+  #form-section{padding:5rem 3rem;}
+  .form-wrap{grid-template-columns:1fr;}
+  .form-info{padding:2.5rem;}
+  .form-panel{padding:2.5rem;}
+  #process{padding:5rem 3rem;}
+  .steps{grid-template-columns:repeat(2,1fr);}
+  .step:nth-child(2){border-right:none;}
+  .step{border-bottom:1px solid var(--border);}
+  .step:nth-child(3),.step:nth-child(4){border-bottom:none;}
+}
+@media(max-width:767px){
+  .prog-section,#form-section,#process{padding-left:1.5rem!important;padding-right:1.5rem!important;}
+  .form-row{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .step{border-right:none!important;border-bottom:1px solid var(--border)!important;}
+  .step:last-child{border-bottom:none!important;}
+}
+</style>
+</head>
+<body>
+<div class="mob-nav" id="mobNav"><button class="mob-close" onclick="closeMobNav()">✕</button><a href="/yemi-laja-v5/">Home</a><a href="/yemi-laja-v5/about/">About</a><a href="/yemi-laja-v5/music/">Music & Media</a><a href="/yemi-laja-v5/programs/">Programs</a><a href="/yemi-laja-v5/events/">Events</a><a href="/yemi-laja-v5/contact/">Contact</a></div>
+<nav id="nav" class="scrolled">
+  <a href="/yemi-laja-v5/" class="nav-logo" style="color:var(--char)">Yemi <em>Laja</em></a>
+  <ul class="nav-links"><li><a href="/yemi-laja-v5/about/">About</a></li><li><a href="/yemi-laja-v5/music/">Music & Media</a></li><li><a href="/yemi-laja-v5/programs/" style="color:var(--gold)">Programs</a></li><li><a href="/yemi-laja-v5/events/">Events</a></li><li><a href="/yemi-laja-v5/contact/">Contact</a></li></ul>
+  <a href="/yemi-laja-v5/contact/#booking" class="nav-book">Book Yemi</a>
+  <div class="nav-ham" onclick="openMobNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="https://i.ibb.co/GQ2xB1pS/Mastercraft-the-Ep-1.jpg" alt="Programs" onerror="this.src='https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80'"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Built Beyond the Stage</p>
+    <h1 class="page-title">Programs & <em>Services</em></h1>
+    <p class="page-subtitle">Coaching, endorsement, and creative design — all led by Yemi through Mastercraft Global Limited.</p>
+  </div>
+</section>
+
+<section id="coaching" class="prog-section plain">
+  <div class="prog-img reveal"><img src="https://i.ibb.co/nqNg213t/yemi-laja-1767088399-3798935294494434272-6006495913.jpg" alt="Coaching" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=700&q=80'"><div class="prog-img-tag">Coaching</div></div>
+  <div class="reveal reveal-delay-1">
+    <div class="prog-num">01</div>
+    <div class="prog-label">Mastercraft Coaching</div>
+    <h2 class="prog-heading">Discover. <em>Master. Fulfil.</em></h2>
+    <p class="prog-for">For: <strong>Everyone — individuals and organisations</strong></p>
+    <p class="prog-body">Mastercraft Coaching is for anyone ready to discover themselves, discover their purpose, master their mind, and fulfil their purpose on earth. This is not just for creatives — it is for every person who knows there is more inside them than they have expressed.</p>
+    <p class="prog-body" style="font-size:0.85rem;color:var(--gold);font-style:italic;">8 Mastercraft Coaching Sessions already completed — with more to come.</p>
+    <ul class="outcomes">
+      <li>Discover who you truly are — your identity, gifts, and potential</li>
+      <li>Uncover and clarify your unique life purpose</li>
+      <li>Master your mind — overcoming limiting beliefs and mental blocks</li>
+      <li>Build a clear, actionable plan to fulfil your purpose on earth</li>
+      <li>Individual and organisational coaching available</li>
+    </ul>
+    <div class="cta-row">
+      <a href="/yemi-laja-v5/contact/#coaching" class="cta-primary">Book a Coaching Session</a>
+      <a href="/yemi-laja-v5/contact/#inquiry" class="cta-ghost" style="color:var(--char);border-color:rgba(30,26,22,0.3);">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+<section id="endorsement" class="prog-section alt">
+  <div class="prog-img reveal"><img src="https://i.ibb.co/C3rM8WM5/yemi-02.png" alt="Endorsement" onerror="this.src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700&q=80'"><div class="prog-img-tag">Global Programme</div></div>
+  <div class="reveal reveal-delay-1">
+    <div class="prog-num">02</div>
+    <div class="prog-label">Global Programme</div>
+    <h2 class="prog-heading">Talent <em>Endorsement</em></h2>
+    <p class="prog-for">For: <strong>Artists, creatives, and leaders worldwide</strong></p>
+    <p class="prog-body">The Global Talent Endorsement Programme identifies, endorses, and connects emerging artists and creatives with global platforms and opportunities they couldn't access alone.</p>
+    <ul class="outcomes">
+      <li>Formal endorsement from Yemi Laja and Mastercraft</li>
+      <li>Introduction to global networks and platforms</li>
+      <li>Featured promotion across Yemi's channels</li>
+      <li>Mentorship and ongoing development support</li>
+    </ul>
+    <a href="#endorsement-form" class="cta-primary">Submit Application</a>
+  </div>
+</section>
+
+<section id="design" class="prog-section plain">
+  <div class="prog-img reveal"><img src="https://i.ibb.co/GQ2xB1pS/Mastercraft-the-Ep-1.jpg" alt="Design" onerror="this.src='https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700&q=80'"><div class="prog-img-tag">Mastercraft Designs</div></div>
+  <div class="reveal reveal-delay-1">
+    <div class="prog-num">03</div>
+    <div class="prog-label">For Brands & Institutions</div>
+    <h2 class="prog-heading">Mastercraft <em>Designs</em></h2>
+    <p class="prog-for">For: <strong>Brands, churches, organisations, and media outlets</strong></p>
+    <p class="prog-body">Creative branding, corporate productions, and strategic collaborations. Mastercraft Global Limited delivers excellence in visual storytelling, design, and production.</p>
+    <ul class="outcomes">
+      <li>Brand identity and visual direction</li>
+      <li>Creative production and content strategy</li>
+      <li>Event production and staging</li>
+      <li>Film, media, and digital content</li>
+    </ul>
+    <a href="/yemi-laja-v5/contact/#design" class="cta-primary">Request a Service</a>
+  </div>
+</section>
+
+<section id="endorsement-form" style="background:var(--char);padding:7rem 6rem;">
+  <div class="reveal" style="max-width:700px;margin-bottom:3rem;">
+    <p class="mc-label">Global Talent Endorsement</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--cream);line-height:1.1;">Submit Your <em style="font-style:italic;color:var(--gold)">Application</em></h2>
+    <p style="font-size:0.95rem;line-height:1.9;color:rgba(237,229,216,0.5);margin-top:1rem;">Tell us about yourself and your creative work. All applications are reviewed personally.</p>
+  </div>
+  <div class="form-wrap reveal reveal-delay-1">
+    <div class="form-panel">
+      <div class="form-row"><div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" placeholder="Your full name"></div><div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="your@email.com"></div></div>
+      <div class="form-row"><div class="form-group"><label class="form-label">Country</label><input type="text" class="form-input" placeholder="Country of residence"></div><div class="form-group"><label class="form-label">Creative Discipline</label><select class="form-select"><option value="">Select discipline</option><option>Music</option><option>Spoken Word</option><option>Film / Visual Arts</option><option>Dance / Performance</option><option>Writing / Poetry</option><option>Design / Branding</option><option>Other</option></select></div></div>
+      <div class="form-group"><label class="form-label">Portfolio / Website URL</label><input type="url" class="form-input" placeholder="https://yourwebsite.com"></div>
+      <div class="form-group"><label class="form-label">Short Bio</label><textarea class="form-textarea" placeholder="Tell us about yourself and your creative journey..."></textarea></div>
+      <div class="form-group"><label class="form-label">Why Yemi?</label><textarea class="form-textarea" placeholder="Why are you applying for this endorsement? What do you hope it will mean for your work?"></textarea></div>
+      <button onclick="this.textContent='Application Submitted ✓';this.disabled=true;this.style.background='var(--gold-dim)';" class="cta-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;">Submit Application</button>
+    </div>
+    <div class="form-info">
+      <div class="info-item"><div class="info-lbl">Response Time</div><div class="info-val">Within 14 business days</div></div>
+      <div class="info-item"><div class="info-lbl">Process</div><div class="info-val">Submit · Review · Interview · Endorsement</div></div>
+      <div class="info-item"><div class="info-lbl">Open To</div><div class="info-val">All nationalities and disciplines</div></div>
+      <div class="info-item"><div class="info-lbl">Questions?</div><div class="info-val"><a href="/yemi-laja-v5/contact/" style="color:var(--gold);text-decoration:none;">Contact the team →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="reveal"><p class="section-label" style="justify-content:center;">How It Works</p><h2 class="section-heading" style="color:var(--char);">The <em>Process</em></h2></div>
+  <div class="steps reveal reveal-delay-1">
+    <div class="step"><div class="step-num">01</div><div class="step-title">Submit</div><div class="step-desc">Complete the application form with your details, portfolio, and creative vision.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">Review</div><div class="step-desc">Yemi and the Mastercraft team review every application personally and carefully.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">Interview</div><div class="step-desc">Shortlisted candidates are invited to a conversation with Yemi or her team.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title">Endorsed</div><div class="step-desc">Selected candidates receive formal endorsement and are connected to global platforms.</div></div>
+  </div>
+</section>
+
+<div id="cta-band" class="reveal"><div class="cta-band-text"><p class="cta-band-eyebrow">Not sure where to start?</p><h2 class="cta-band-heading">Let's find the right path <em>for you.</em></h2></div><a href="/yemi-laja-v5/contact/" class="cta-dark">Get in Touch</a></div>
+
+<footer><div class="footer-top"><div><div class="footer-brand-name">Yemi <em>Laja</em></div><p class="footer-tagline">Worship Artist · Creative Director<br>Founder of Mastercraft Global Limited</p><div class="footer-socials"><a href="https://www.instagram.com/yemi_laja/" class="footer-social">IG</a><a href="https://linktr.ee/yemi_laja" class="footer-social">TK</a><a href="https://www.facebook.com/omolaja.olayemi.5/" class="footer-social">FB</a><a href="https://www.youtube.com/channel/UC3ddBQKgWxhFjno4_jDT34g" class="footer-social">YT</a></div></div><div><p class="footer-col-title">Navigate</p><ul class="footer-links"><li><a href="/yemi-laja-v5/about/">About</a></li><li><a href="/yemi-laja-v5/music/">Music & Media</a></li><li><a href="/yemi-laja-v5/programs/">Programs</a></li><li><a href="/yemi-laja-v5/events/">Events</a></li><li><a href="/yemi-laja-v5/contact/">Contact</a></li></ul></div><div><p class="footer-col-title">Programs</p><ul class="footer-links"><li><a href="#coaching">Coaching</a></li><li><a href="#endorsement">Talent Endorsement</a></li><li><a href="#design">Mastercraft Designs</a></li></ul></div><div><p class="footer-col-title">Connect</p><ul class="footer-links"><li><a href="/yemi-laja-v5/contact/#booking">Book a Performance</a></li><li><a href="/yemi-laja-v5/contact/#inquiry">General Inquiry</a></li><li><a href="/yemi-laja-v5/contact/#design">Design Request</a></li></ul></div></div><div class="footer-bottom"><p class="footer-legal">© 2025 Yemi Laja. All rights reserved. <strong>Powered by Mastercraft Global Limited.</strong></p><p class="footer-mc">Mastercraft Global Limited · Registered in the UK</p></div></footer>
+<script>
+function openMobNav(){document.getElementById("mobNav").classList.add("open");}
+function closeMobNav(){document.getElementById("mobNav").classList.remove("open");}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible");}),{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+</script>
+</body></html>
