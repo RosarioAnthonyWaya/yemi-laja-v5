@@ -791,7 +791,7 @@ footer {
   .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
   footer { padding: 3rem 1.5rem 1.5rem; }
   .paths-grid { grid-template-columns: 1fr; }
-  .path-card { aspect-ratio: 4/3; }
+  .path-card { aspect-ratio: 4/6; }
   .event-meta { flex-wrap: wrap; gap: 1.2rem; }
 }
 
