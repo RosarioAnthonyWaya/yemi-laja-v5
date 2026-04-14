@@ -65,18 +65,33 @@
 </style>
 </head>
 <body>
+  <!-- MOBILE NAV -->
 <div class="mob-nav" id="mobNav">
   <button class="mob-close" onclick="closeMobNav()">✕</button>
-  <a href="/">Home</a><a href="/about/">About</a>
-  <a href="/music/">Music & Media</a><a href="/programs/">Programs</a>
-  <a href="/events/">Events</a><a href="/contact/">Contact</a>
+  <a href="/" onclick="closeMobNav()">Home</a>
+  <a href="/about/" onclick="closeMobNav()">About</a>
+  <a href="/music/" onclick="closeMobNav()">Music & Media</a>
+  <a href="/services/" onclick="closeMobNav()">Services</a>
+  <a href="/events/" onclick="closeMobNav()">Events</a>
+  <a href="/contact/" onclick="closeMobNav()">Contact</a>
 </div>
-<nav id="nav" class="scrolled">
-  <a href="/" class="nav-logo" style="color:var(--char)">Yemi <em>Laja</em></a>
-  <ul class="nav-links"><li><a href="/about/">About</a></li><li><a href="/music/" style="color:var(--gold)">Music & Media</a></li><li><a href="/programs/">Programs</a></li><li><a href="/events/">Events</a></li><li><a href="/contact/">Contact</a></li></ul>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">Yemi <em>Laja</em></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/music/">Music & Media</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/events/">Events</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
   <a href="/contact/#booking" class="nav-book">Book Yemi</a>
-  <div class="nav-ham" onclick="openMobNav()"><span></span><span></span><span></span></div>
+  <div class="nav-ham" onclick="openMobNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
 
 <section class="page-hero">
   <div class="page-hero-bg"><img src="../../photos/yemi-03.png" alt="Music" ></div>
