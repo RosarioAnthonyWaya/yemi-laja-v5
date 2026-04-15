@@ -428,7 +428,7 @@ body:has(button:hover) .cursor-ring { width: 56px; height: 56px; opacity: 0.8; }
 .brand-item {
   font-family: 'Playfair Display', serif;
   font-size: 0.95rem; letter-spacing: 0.1em;
-  color: rgba(30,26,22,0.3); transition: color 0.3s;
+  color: rgba(51, 38, 2, 0.8); transition: color 0.3s;
   font-style: italic;
 }
 .brand-item:hover { color: var(--gold); }
