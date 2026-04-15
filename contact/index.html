@@ -53,12 +53,31 @@
 </style>
 </head>
 <body>
-<div class="mob-nav" id="mobNav"><button class="mob-close" onclick="closeMobNav()">✕</button><a href="/">Home</a><a href="/about/">About</a><a href="/music/">Music & Media</a><a href="/programs/">Programs</a><a href="/events/">Events</a><a href="/contact/">Contact</a></div>
-<nav id="nav" class="scrolled">
-  <a href="/" class="nav-logo" style="color:var(--char)">Yemi <em>Laja</em></a>
-  <ul class="nav-links"><li><a href="/about/">About</a></li><li><a href="/music/">Music & Media</a></li><li><a href="/programs/">Programs</a></li><li><a href="/events/">Events</a></li><li><a href="/contact/" style="color:var(--gold)">Contact</a></li></ul>
-  <a href="#booking" class="nav-book">Book Yemi</a>
-  <div class="nav-ham" onclick="openMobNav()"><span></span><span></span><span></span></div>
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMobNav()">✕</button>
+  <a href="/" onclick="closeMobNav()">Home</a>
+  <a href="/about/" onclick="closeMobNav()">About</a>
+  <a href="/music/" onclick="closeMobNav()">Music & Media</a>
+  <a href="/services/" onclick="closeMobNav()">Services</a>
+  <a href="/events/" onclick="closeMobNav()">Events</a>
+  <a href="/contact/" onclick="closeMobNav()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">Yemi <em>Laja</em></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/music/">Music & Media</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/events/">Events</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <a href="/contact/#booking" class="nav-book">Book Yemi</a>
+  <div class="nav-ham" onclick="openMobNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <section class="page-hero">
@@ -81,13 +100,13 @@
     </button>
     <button class="sel-tab" onclick="switchForm('coaching',this)">
       <div class="sel-tab-num">02</div>
-      <div class="sel-tab-label">Creatives & Talent</div>
+      <div class="sel-tab-label">For Mentorships</div>
       <div class="sel-tab-title">Coaching Enquiry</div>
     </button>
     <button class="sel-tab" onclick="switchForm('design',this)">
       <div class="sel-tab-num">03</div>
-      <div class="sel-tab-label">Brands & Institutions</div>
-      <div class="sel-tab-title">Design & Partnership</div>
+      <div class="sel-tab-label">Movies and Films</div>
+      <div class="sel-tab-title">Directing and Producing</div>
     </button>
   </div>
 </section>
@@ -123,10 +142,11 @@
         <button onclick="submitForm(this)" class="cta-primary" style="border:none;cursor:pointer;width:100%;text-align:center;">Send Coaching Enquiry</button>
       </div>
       <div class="form-panel" id="form-design">
-        <h3 class="form-heading">Design & <em>Partnership</em></h3>
+        <h3 class="form-heading">Directing & <em>Producing</em></h3>
         <div class="form-row"><div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Full name"></div><div class="form-group"><label class="form-label">Organisation</label><input type="text" class="form-input" placeholder="Company / church name"></div></div>
         <div class="form-row"><div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="your@email.com"></div><div class="form-group"><label class="form-label">Website</label><input type="url" class="form-input" placeholder="https://yoursite.com"></div></div>
-        <div class="form-row"><div class="form-group"><label class="form-label">Service Required</label><select class="form-select"><option value="">Select service</option><option>Brand Identity</option><option>Creative Production</option><option>Event Production</option><option>Film & Media</option><option>Digital Content</option><option>Partnership / Collaboration</option></select></div><div class="form-group"><label class="form-label">Budget Range</label><select class="form-select"><option value="">Select range</option><option>Under £1,000</option><option>£1,000–£5,000</option><option>£5,000–£15,000</option><option>£15,000+</option><option>To be discussed</option></select></div></div>
+        <div class="form-row"><div class="form-group"><label class="form-label">Service Required</label><select class="form-select"><option value="">Select service</option><option>Directing</option>
+          <option>Creative Production</option><option>Event Production</option><option>Film & Media</option><option>Digital Content</option><option>Partnership / Collaboration</option></select></div><div class="form-group"><label class="form-label">Budget Range</label><select class="form-select"><option value="">Select range</option><option>Under £1,000</option><option>£1,000–£5,000</option><option>£5,000–£15,000</option><option>£15,000+</option><option>To be discussed</option></select></div></div>
         <div class="form-group"><label class="form-label">Project Brief</label><textarea class="form-textarea" placeholder="Describe your project, vision, timeline, and any specific requirements..."></textarea></div>
         <button onclick="submitForm(this)" class="cta-primary" style="border:none;cursor:pointer;width:100%;text-align:center;">Send Project Brief</button>
       </div>
