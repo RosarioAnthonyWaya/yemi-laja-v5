@@ -11,6 +11,10 @@
   --mist:      #8A8278;
   --border:    rgba(201,168,76,0.18);
   --white:     #FDFAF6;
+  --stone:     #E8E2D9;
+--ivory:     #F8F5F0;
+--linen:     #F4EFE8;
+--text-dark: #1E1A16;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
